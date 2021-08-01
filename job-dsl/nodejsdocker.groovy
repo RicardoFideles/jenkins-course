@@ -15,9 +15,10 @@ job('NodeJS Docker example') {
     steps {
         dockerBuildAndPublish {
             repositoryName('ricardofideles/docker-nodesjs-devops')
-            tag('${BUILD_TIMESTAMP}-${GIT_REVISION,length=7}')
+            tag('${GIT_REVISION,length=9}')
             registryCredentials('dockerhub')
             forcePull(false)
+            forceTag(false)
             createFingerprints(false)
             skipDecorate()
         }
